@@ -1,64 +1,68 @@
- 'use strict';
+'use strict';
 
-// 1) ---------------------
-// 
-//  using the (findMax) function; return the maximum value in the provided array
+// -------------------------------------------------------------------------------------------------------
+//  Challenge 01:
+//  Required:
+//
+//  Write a function that takes an array and returns the maximum value in the provided array
 //  without using build-in functions.
-//  EX:
-//  [12, 32, 22, 45, 78, 12, 50] ==> 78
 //  
-// ------------------------
+// Input: [12, 32, 22, 45, 78, 12, 50]
+// Output: 78
+//  
 
-function findMax(arr) {
-    let max;
-    var i = arr.length;
-    while (i--) {
-        if (Number(arr[i]) > max) {
-            max = Number(arr[i]);
+const findMax = (arr)=>{
+    let max=0;
+    let i = 0;
+    while (i !=arr.length) {
+        if (arr[i] > max) {
+            max = arr[i];
         }
+        i++;
     }
     return max;
-
 }
+// -------------------------------------------------------------------------------------------------------
 
-// 2) ---------------------
-// 
-//  using the (sumNums) function; return the Sum value of the numeric values
-//  inside the array (there could be strings inside), without using build-in functions
-//  EX:
-//  [20, '234', 'car', 41, 20, 'chair'] ==> 81
+// -------------------------------------------------------------------------------------------------------
+//  Challenge 02:
+//  Required:
+//
+//  Write a function that takes an arrays and returns the Sum of the numeric values
+//  inside the array (there could be strings inside), without using built-in functions
 //  
-// ------------------------
+// Input: [20, '234', 'car', 41, 20, 'chair']
+// Output: 81
+//  
 
 const sumNums = (arr)=>{
-    let sum;
+    let sum=0;
     for(let i = 0; i < arr.length; i++) {
-        for(let j = 0; j < arr[i].length; j++) {
-           sum += arr[i][j];
+       {if (typeof arr[i] === 'number')
+           sum = sum +arr[i];
         }
      }
     return sum;
 }
+// -------------------------------------------------------------------------------------------------------
 
-// 3) ---------------------
-// 
-//  using the (reverseArray) function; return provided array reversed
-//  without using build-in functions
-//  EX:
-//  ['C#', 'JS', 'Ruby','Python' ] ==> ['Python','Ruby','JS','C#']
-// 
-// ------------------------
+// -------------------------------------------------------------------------------------------------------
+//  Challenge 03:
+//  Required:
+//
+//  Write a function that takes an array and returns the array reversed
+//  without using built-in functions
+//  
+// Input: ['C#', 'JS', 'Ruby','Python'] 
+// Output: ['Python','Ruby','JS','C#']
+
 const reverseArray = (arr)=>{
     let myArr=[]
-  for (let i=arr.length-1; i>=0; i--){
-     myArr.push(arr[i])
-  }
-  return myArr
+    for (let i=arr.length-1; i>=0; i--){
+       myArr.push(arr[i])
+    }
+    return myArr
 }
-
-
-   
-
-
+// -------------------------------------------------------------------------------------------------------
 
 module.exports = {findMax , sumNums, reverseArray};

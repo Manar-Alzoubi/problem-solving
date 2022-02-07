@@ -1,6 +1,6 @@
 'use strict';
 
-import { findMax, sumNums, reverseArray } from './Challenge06';
+const { findMax, sumNums, reverseArray } = require('./Challenge06');
 
 describe('Challenge01', () => {
     test('Find_Max', () => {

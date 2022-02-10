@@ -27,12 +27,12 @@
 // -------------------------------------------------------------------------------------------------------
 
 const customerAndAge = (obj) => {
-    for (const prop in obj) {
-        var arr=[];
-        for (const x in obj) {
-              arr.push("CustomerName  : " + x  + ", Age : " + obj[x]);
-           }
-       console.log (arr);
+  let arr=[];
+  for (const prop in obj) {
+      for (const x in obj) {
+            arr.push("Customer Name :"+x+" , Age :"+obj[x].toString());
+         }
+     return (arr);
     }
 
 };
@@ -60,11 +60,11 @@ const customerAndAge = (obj) => {
 
 // -------------------------------------------------------------------------------------------------------
 const getEntries = (obj) => {
-    const arr =[];
-for (const [key, value] of Object.entries(obj)) {
-  arr.push(`${key}: ${value}`);
-}
-console.log(arr);
+  const arr =[];
+  for (const [key, value] of Object.entries(obj)) {
+    arr.push(`${key}: ${value}`);
+  }
+  return arr;
   };
 
 // ------------------------------------------------------------------------------------------------------

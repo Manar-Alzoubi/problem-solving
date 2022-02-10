@@ -19,7 +19,7 @@
 // ------------------------
 
 const objLat = (obj) => {
-    console.log("My name is "+ firstName + "  "+ lastName + "  I am "+ age + "  YO" +" , and I love "+ hobby);
+    console.log("my name is "+obj.firstName.charAt(0).toUpperCase()+obj.firstName.slice(1).toLowerCase()+" "+obj.lastName.charAt(0).toUpperCase()+obj.lastName.slice(1).toLowerCase()+" I am "+obj.age+" YO, and I love "+obj.hobby+".");
 };
 
 // 2) ---------------------
@@ -83,15 +83,18 @@ const objLat = (obj) => {
 
 // ------------------------
 const cvFormatter = (arr) => {
-    
-    if (arr[2] >= 1)
+    const arr2= [];
+    for(let i=0; i<arr.length;i++)
     {
-        arr[0] = firstName+ " "+ lastName;
+    if (arr[i].yearsOfExperience > 1)
+    {
+        arr2[i].push({fullName: arr[i].firstName}+" "+arr[i].lastName,);
+        arr2[i].push({tech: tech});
         arr[1] = arr[3];
         
     }
     
-
+    }
 };
 
 // 3) ---------------------

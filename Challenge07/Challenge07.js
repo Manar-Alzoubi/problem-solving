@@ -19,7 +19,7 @@
 // ------------------------
 
 const objLat = (obj) => {
-    console.log("my name is "+obj.firstName.charAt(0).toUpperCase()+obj.firstName.slice(1).toLowerCase()+" "+obj.lastName.charAt(0).toUpperCase()+obj.lastName.slice(1).toLowerCase()+" I am "+obj.age+" YO, and I love "+obj.hobby+".");
+    return ("my name is "+obj.firstName.charAt(0).toUpperCase()+obj.firstName.slice(1).toLowerCase()+" "+obj.lastName.charAt(0).toUpperCase()+obj.lastName.slice(1).toLowerCase()+" I am "+obj.age+" YO, and I love "+obj.hobby+".");
 };
 
 // 2) ---------------------
@@ -84,17 +84,25 @@ const objLat = (obj) => {
 // ------------------------
 const cvFormatter = (arr) => {
     const arr2= [];
+    let fullName;
     for(let i=0; i<arr.length;i++)
     {
     if (arr[i].yearsOfExperience > 1)
     {
-        arr2[i].push({fullName: arr[i].firstName}+" "+arr[i].lastName,);
-        arr2[i].push({tech: tech});
-        arr[1] = arr[3];
+     if(arr[i].firstName !== null && arr[i].lastName !== null)
+       fullName=arr[i].firstName +" "+arr[i].lastName;
+       else if (arr[i].firstName == null)
+          fullName= arr[i].lastName;
+          else 
+           fullName= arr[i].firstName;
+          
+        arr2.push({fullName : fullName , tech : arr[i].tech});
+
         
     }
     
     }
+    return arr2;
 };
 
 // 3) ---------------------
@@ -126,14 +134,12 @@ const applicationsStatics = (arr) => {
     let rejectedApplicants =0;
 
     for (let i=0; i<arr.length ; i++){
-        if(arr.firstName==null || arr.lastName ==null )
+        if((arr[i].firstName==null && arr[i].lastName ==null) ||  arr[i].yearsOfExperience<=1 )
         {
         rejectedApplicants++;
-        break;
         }
-        else
-        {
-            switch (tech)
+    {
+            switch (arr[i].tech)
             {
             case ".Net":
                 {
@@ -164,12 +170,15 @@ const applicationsStatics = (arr) => {
         }
 
     }
-    console.log("python developers  "+ python_Devs);
-    console.log("java developers  "+java_Devs);
-    console.log("javascript developers  "+javaScript_Devs);
-    console.log(".net developers  "+dotNet_Devs);
-    console.log("rejected  "+rejectedApplicants);
-    console.log("number of total applicants  "+totalApplicants);
+   let result = {
+        "python_Devs":python_Devs ,
+        "javaScript_Devs": javaScript_Devs,
+        "dotNet_Devs":dotNet_Devs ,
+        "java_Devs": java_Devs,
+        "totalApplicants":totalApplicants ,
+        "rejectedApplicants": rejectedApplicants
+    }
+    return result;
 
 
 
